@@ -5,21 +5,45 @@ export default function pokemon({pokemon}) {
     return(
         <Layout title={pokemon.name}>
             <div className="m-4">
-                <h1 className="text-4xl mb-2 text-center capitalize">{pokemon.name}</h1>
+                <div className="text-center mx-auto mb-2 pb-2 rounded-md bg-gray-200">
+
+                   
+                    <h1 className="text-4xl capitalize">{pokemon.name}</h1>
+                </div>
                 
-                <div className="bg-gray-200 rounded-lg shadow-xl">
+                
+                <div className="bg-gray-200 p-2 rounded-lg shadow-xl">
                     <img className="mx-auto" src={pokemon.image} alt={pokemon.name}></img>    
                 </div>
 
 
-                <div className="mt-1 p-2 bg-gray-200 rounded-lg shadow-xl">
-                    <p><span className="font-bold mr-2">Weight: </span>{pokemon.weight}</p>
-                    <p><span className="font-bold mr-2">Height: </span>{pokemon.height}</p>
+                <div className="my-1 p-2 px-10 bg-gray-200 rounded-lg shadow-xl">
+                    <table className="">
+                        <tbody>
+                            <tr>
+                                <td><p><span className="font-semibold">Weight</span></p></td>
+                                <td><p><span className="font-semibold">:</span></p></td>
+                                <td><p><span className="font-semibold">{pokemon.weight}</span></p></td>
+                            </tr>
+
+                            <tr>
+                                <td><p><span className="font-semibold">Height</span></p></td>
+                                <td><p><span className="font-semibold">:</span></p></td>
+                                <td><p><span className="font-semibold">{pokemon.height}</span></p></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                
                     
-                    <h2 className="text-2xl mt-6 mb-2">Types</h2>
+                    <h2 className="text-2xl mt-3 mb-2">Types</h2>
+                    <div className="flex gap-2">
                     {pokemon.types.map((type, index) => (
-                        <p key={index}>{type.type.name}</p>
+                        
+                            <p className="px-2 bg-blue-200 rounded-lg" key={index}>#{type.type.name}</p>     
+                        
+                        
                     ))}
+                    </div>
                 </div>
 
                 
